@@ -36,7 +36,8 @@
             </div>
             <div class="three columns u-pull-right">
                 <button class="u-pull-right button-primary seedFiles" multiple="multiple"  ng-class="{&#39;button-primary&#39;: !$root.disabled}">
-                    <i class="fa fa-upload"></i> Seed files</button>
+                    <i class="fa fa-upload"></i> Seed files
+                </button>
 
                 <form name="upload">
                     <label for="torrentId">Download from a magnet link: </label>

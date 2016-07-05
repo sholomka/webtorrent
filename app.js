@@ -1,20 +1,22 @@
 class App {
     constructor() {}
-    
+
     log (str) {
-        var p = document.createElement('p');
-        p.innerHTML = str;
-        document.querySelector('.log').appendChild(p)
+        let table = document.querySelector('.table tbody'),
+            tr = document.createElement('tr');
+
+        tr.innerHTML = str;
+        table.appendChild(tr);
     }
 
     seedFiles(file) {
         client.seed(file, (torrent) => {
-            this.log('Got torrent metadata!');
-            this.log(
-                'Torrent info hash: ' + torrent.infoHash + ' ' +
-                '<a href="' + torrent.magnetURI + '" target="_blank">[Magnet URI]</a> ' +
-                '<a href="' + torrent.torrentFileBlobURL + '" target="_blank" download="' + torrent.name + '.torrent">[Download .torrent]</a>'
-            );
+            // this.log('Got torrent metadata!');
+            // this.log(
+            //     'Torrent info hash: ' + torrent.infoHash + ' ' +
+            //     '<a href="' + torrent.magnetURI + '" target="_blank">[Magnet URI]</a> ' +
+            //     '<a href="' + torrent.torrentFileBlobURL + '" target="_blank" download="' + torrent.name + '.torrent">[Download .torrent]</a>'
+            // );
 
             // Print out progress every 5 seconds
             // var interval = setInterval(() => {
@@ -22,25 +24,31 @@ class App {
             // }, 5000);
 
             torrent.on('done', () => {
-                this.log('Progress: 100%');
+                // this.log('Progress: 100%');
                 // clearInterval(interval)
             });
 
             // Render all files into to the page
             torrent.files.forEach(file => {
-                file.appendTo('.log');
-                this.log('(Blob URLs only work if the file is loaded from a server. "http//localhost" works. "file://" does not.)')
+                // file.appendTo('.log');
+                // this.log('(Blob URLs only work if the file is loaded from a server. "http//localhost" works. "file://" does not.)')
                 file.getBlobURL((err, url) => {
                     if (err) return this.log(err.message);
-                    this.log('File done.');
-                    this.log('<a href="' + url + '" download="'+file.name+'">Download full file: ' + file.name + '</a>')
+                    // this.log('File done.');
+
+
+                    console.log(file);
+
+                    this.log('<td><a href="' + url + '" download="'+file.name+'">' + file.name + '</a></td>' +
+                                '<td>' + file.length + '</td>');
+
                 })
             })
         })        
     }
 
     openTorrentFile(file) {
-;
+
     }
     
     // var buildMagnetURI = function(infoHash) {

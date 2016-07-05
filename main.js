@@ -7,17 +7,28 @@ client.on('error', function (err) {
 
 
 
-document.querySelector('.seedFiles').addEventListener('click', function (e) {
-    e.preventDefault(); // Prevent page refresh
+// document.querySelector('.seedFiles').addEventListener('click', function (e) {
+//     e.preventDefault(); // Prevent page refresh
+//
+// //        var torrentId = document.querySelector('form input[name=torrentId]').value;
+//     var torrentId = document.forms.upload.elements.myfile.files[0];
+//
+//     app.seedFiles(torrentId);
+//
+//     app.log('Adding ' + torrentId);
+// //        client.add(torrentId, onTorrent)
+//
+//
+//
+// });
 
-//        var torrentId = document.querySelector('form input[name=torrentId]').value;
-    var torrentId = document.forms.upload.elements.myfile.files[0];
 
+myfile.addEventListener('change', function() {
+
+    console.log('1');
+
+    var torrentId = this.files[0];
     app.seedFiles(torrentId);
-
-    app.log('Adding ' + torrentId);
-//        client.add(torrentId, onTorrent)
-
-
-
 });
+
+

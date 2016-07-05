@@ -1,22 +1,65 @@
 <!doctype html>
-<html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Document</title>
+    <!-- Latest compiled and minified CSS -->
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/css/bootstrap.min.css" integrity="sha384-1q8mTJOASx8j1Au+a5WDVnPi2lkFfwwEAa8hDDdjZlpLegxhjVME1fgjWPGmkzs7" crossorigin="anonymous">
+    <link rel="stylesheet" href="style.css">
+</head>
 <body>
-<h1>Download files using the WebTorrent protocol (BitTorrent over WebRTC).</h1>
 
-<form name="upload">
-    <label for="torrentId">Download from a magnet link: </label>
-    <input type="file" name="myfile">
-    <!--    <input name="torrentId", placeholder="magnet:" value="magnet:?xt=urn:btih:6a9759bffd5c0af65319979fb7832189f4f3c35d&dn=sintel.mp4&tr=wss%3A%2F%2Ftracker.btorrent.xyz&tr=wss%3A%2F%2Ftracker.fastcast.nz&tr=wss%3A%2F%2Ftracker.openwebtorrent.com&tr=wss%3A%2F%2Ftracker.webtorrent.io&ws=https%3A%2F%2Fwebtorrent.io%2Ftorrents%2Fsintel-1024-surround.mp4">-->
-    <button type="submit">Download</button>
-</form>
+<header>
+    <h1>βTorrent<span class="version ng-binding"> v0.15</span></h1>
 
-<h2>Log</h2>
-<div class="log"></div>
+</header>
 
-<!-- Include the latest version of WebTorrent -->
-<!--<script src="https://cdn.jsdelivr.net/webtorrent/latest/webtorrent.min.js"></script>-->
+
+<div style="width: 115px;">
+    <label class="file_upload">
+        <span class="button">Seed files</span>
+        <mark>Файл не выбран</mark>
+        <input type="file" name="myfile" id="myfile">
+    </label>
+</div>
+
+
+
+
+<div class="table-responsive">
+    <table class="table table-striped">
+        <thead>
+        <tr>
+            <th>Name</th>
+            <th>Size</th>
+        </tr>
+        </thead>
+       <tbody>
+       
+       </tbody>
+    </table>
+</div>
+
+
+<!--    <form name="upload">-->
+<!---->
+<!--        <label class="file_upload btn btn-info">-->
+<!--            <span class="button">Seed files</span>-->
+<!--            <mark>Файл не выбран</mark>-->
+<!--            <input type="file" name="myfile" multiple="multiple">-->
+<!--        </label>-->
+<!---->
+<!---->
+<!---->
+<!---->
+<!---->
+<!--    </form>-->
+
 <script src="webtorrent.min.js"></script>
 <script src="app.js"></script>
 <script src="main.js"></script>
+
 </body>
 </html>
+
+
